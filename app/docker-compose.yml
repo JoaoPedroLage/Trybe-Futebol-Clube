@@ -17,6 +17,8 @@ services:
   backend:
     container_name: app_backend
     build: ./backend
+    ports:
+      - 3001:3001
     depends_on:
       db:
         condition: service_healthy
@@ -43,7 +45,7 @@ services:
     # restart: 'always'
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"] # Deve aguardar o banco ficar operacional
-      timeout: 10s
-      retries: 5
+      timeout: 20s
+      retries: 10
     cap_add:
       - SYS_NICE # Deve omitir alertas menores
