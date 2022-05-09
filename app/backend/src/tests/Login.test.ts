@@ -77,5 +77,5 @@ describe('Tests the login route', () => {
   //     expect(status).to.be.equal(200);
   //     expect(body).to.be.equal('admin');
   //   });
-  });
+});
 
