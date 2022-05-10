@@ -14,13 +14,13 @@ const { expect } = chai;
 
 describe('Tests the login route', () => {
   const HTTPResponse = async (_reqBody: object) => chai.request(app).post('/login').send(_reqBody);
-  const requestBodyMock = {
-    'id': 1,
-    'username': 'Admin',
-    'role': 'admin',
-    'email': 'admin@admin.com',
-    'password': '$2a$08$xi.Hxk1czAO0nZR..B393u10aED0RQ1N3PAEXQ7HxtLjKPEZBu.PW'
-   }
+  // const requestBodyMock = {
+  //   'id': 1,
+  //   'username': 'Admin',
+  //   'role': 'admin',
+  //   'email': 'admin@admin.com',
+  //   'password': '$2a$08$xi.Hxk1czAO0nZR..B393u10aED0RQ1N3PAEXQ7HxtLjKPEZBu.PW'
+  //  }
 
   it('Login attempt with incompatible password', async () => {
     const reqBody = { email: 'admin@admin.com', password: 'wrongPassarword' };
