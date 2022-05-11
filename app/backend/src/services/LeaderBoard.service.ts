@@ -2,7 +2,7 @@ import { ILeaderBoardService, DataLeaderBoard } from '../interfaces';
 import Team from '../models/Teams.model';
 import MatchesService from './Matches.service';
 
-const leaderBoardArray: DataLeaderBoard[] = [];
+let leaderBoardArray: DataLeaderBoard[] = [];
 
 export default class LeaderBoardService implements ILeaderBoardService {
   private _teamModel = Team;
@@ -92,6 +92,8 @@ export default class LeaderBoardService implements ILeaderBoardService {
         .sort((a, b) => b.goalsBalance - a.goalsBalance)
         .sort((a, b) => b.totalVictories - a.totalVictories)
         .sort((a, b) => b.totalPoints - a.totalPoints));
+
+    leaderBoardArray = [];
 
     return { code: 200, orderlyLeaderBoard };
   }
