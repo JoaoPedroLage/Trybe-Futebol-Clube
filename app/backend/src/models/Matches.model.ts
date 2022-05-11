@@ -14,6 +14,8 @@ class Matches extends Model {
   public awayTeamGoals!: string;
 
   public inProgress!: boolean;
+
+  teamHome: any;
 }
 
 Matches.init({
