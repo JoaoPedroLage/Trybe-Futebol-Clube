@@ -59,7 +59,7 @@ export default class LeaderBoardService implements ILeaderBoardService {
 
   private async businessRules() {
     const teamsFound = await this._teamModel.findAll();
-    const { matchesFound } = await this._matches.findAll();
+    const { matchesFound } = await this._matches.findAll('false');
 
     const allTeams = teamsFound.map((team) => team.teamName);
     allTeams.forEach((_, idx) => {
