@@ -10,7 +10,7 @@ export default class MatchService implements IMatchService {
 
   private _teamModel = TeamModel;
 
-  public async findAll(inProgress: string | undefined) {
+  public async findAll(inProgress?: string | undefined) {
     let matchesFound;
     const includeToTable = [
       { model: this._teamModel, as: 'teamHome', attributes: { exclude: ['id'] } },
@@ -25,7 +25,9 @@ export default class MatchService implements IMatchService {
       matchesFound = await this._matchModel.findAll({
         where: { inProgress: false },
         include: includeToTable });
-    } else matchesFound = await this._matchModel.findAll({ include: includeToTable });
+    } else if (!inProgress) {
+      matchesFound = await this._matchModel.findAll({ include: includeToTable });
+    }
 
     if (!matchesFound) return { code: 401, message: 'Matches not found' };
 
