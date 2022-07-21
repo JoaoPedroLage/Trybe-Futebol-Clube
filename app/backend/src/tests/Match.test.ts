@@ -5,8 +5,6 @@ import chaiHttp = require('chai-http');
 import { app } from '../app';
 import User from '../models/Users.model';
 
-import { Response } from 'superagent';
-
 chai.use(chaiHttp);
 
 const { expect } = chai;
